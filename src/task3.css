@@ -1,0 +1,32 @@
+.box{
+    width: 100px;
+    height: 100px;
+    background: #555555;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: linear 300ms;
+}
+.video{
+    display: block;
+    width: 95%;
+    margin: 0 auto;
+}
+.volume{
+    width: 50px;
+    transform: rotate(-90deg);
+}
+input{
+    display: inline-block;
+    width: 70%;
+}
+button{
+    height: 50px;
+    width: 10%;
+}
+.controls{
+    display: flex;
+    margin: 20px;
+    background: black;
+    padding: 10px 20px;
+}

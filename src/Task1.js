@@ -52,11 +52,13 @@ export default class App1 extends React.Component {
         return <div>
             <DataContext.Consumer>
                 {({albums}) => {
-                    albums.map((album, index) => {
-                        return <div key={album.id}>
-                            Id: {album.as} - Index: {index} - Title: {album.title}
-                        </div>
-                    })
+                    return(
+                        albums.map((album, index) => {
+                            return <div key={album.id}>
+                                Id: {album.id} - Index: {index} - Title: {album.title}
+                            </div>
+                        })
+                    )
                 }}
             </DataContext.Consumer>
         </div>

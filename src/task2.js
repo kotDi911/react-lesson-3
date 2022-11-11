@@ -1,3 +1,4 @@
+/*
 import React, {useState, useEffect, useContext} from "react";
 
 export const Data = React.createContext();
@@ -79,4 +80,4 @@ export const App = () => {
             )}
         </div>
     </div>)
-};
+};*/

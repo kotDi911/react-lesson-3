@@ -3,18 +3,20 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import './App.css';
 import './task3.css';
-import {App, DataProvider} from "./task2";
 import Box from "./task3";
 import Video from "./Video";
+import App1 from "./Task1";
+import {DataProvider} from "./context";
 
 
 ReactDOM.render(
     <React.StrictMode>
-        <Box/>
+        {/*<Box/>*/}
+        {/*<App/>*/}
         <DataProvider>
-            <App/>
+            <App1/>
         </DataProvider>
-        <Video/>
+        {/*<Video/>*/}
     </React.StrictMode>,
     document.getElementById('root')
 );

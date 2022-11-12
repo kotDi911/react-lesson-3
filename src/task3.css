@@ -20,7 +20,7 @@ input{
     display: inline-block;
     width: 70%;
 }
-button{
+.player_button{
     height: 50px;
     width: 10%;
 }

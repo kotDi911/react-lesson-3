@@ -66,11 +66,11 @@ export default class Video extends React.Component {
                 ref={this.video}
             />
             <div className="controls">
-                <button onClick={this.play} ref={this.playBtn}>play</button>
-                <button onClick={this.pause} ref={this.pauseBtn}>pause</button>
+                <button className="player_button" onClick={this.play} ref={this.playBtn}>play</button>
+                <button className="player_button" onClick={this.pause} ref={this.pauseBtn}>pause</button>
                 <input type="range" min='0' max={this.state.duration} value={this.state.value} onChange={this.changeValue}/>
                 <input  className='volume' type="range" min='0' max='100' value={this.state.volume} onChange={this.changeVolume}/>
-                <button onClick={this.fullScreen} ref={this.fullBtn}>FullScreen</button>
+                <button className="player_button" onClick={this.fullScreen} ref={this.fullBtn}>FullScreen</button>
             </div>
         </div>
     }

@@ -1,46 +1,44 @@
-/*
 import React, {useState, useEffect, useContext} from "react";
+import {DataContext} from "./context";
 
-export const Data = React.createContext();
-
-export const DataProvider = (props) => {
-    let state = {
-        data: []
-    };
-    return <Data.Provider value={state}>
-        {props.children}
-    </Data.Provider>
+const Card = ({render}) => {
+    return (
+        <>
+            {render.map((album) => {
+                    return (<div key={album.id} className='text-area'>
+                        <b>ID:</b> {album.id} - <b>Index:</b> {render.indexOf(album)} <br/> <b>Title:</b> {album.title}
+                    </div>)
+                }
+            )}
+        </>
+    )
 };
 
-export const App = () => {
-    const {data} = useContext(Data);
+const Loader = ({loading})=>{
+    return loading ? (<span className='preloader'>Loading...</span>) : (<></>);
+};
+
+export const Task2 = () => {
+    const {albums} = useContext(DataContext);
     const [number, setNumber] = useState('');
     const [render, setRender] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch("https://jsonplaceholder.typicode.com/albums")
-            .then((res) => {
-                return res.json()
-            })
-            .then((res) => {
-                res.map((res) => {
-                    data[data.length] = res
-                })
-            })
-    }, [data]);
+        let timer = setTimeout(() => setLoading(false), 1000);
+        return () => {
+            clearTimeout(timer);
+        };
+    });
 
-    setTimeout(()=>{
-        if (document.querySelector('.preloader') && data.length > 0) {
-            document.querySelector('.preloader').remove();
-        }
-    }, 1000);
+
 
     const update = (number) => {
         setRender([]);
         let dataRender = [];
-        for (let i = 0; i < data.length; i++) {
-            if (i < data.indexOf(data[number])) {
-                dataRender[dataRender.length] = data[i];
+        for (let i = 0; i < albums.length; i++) {
+            if (i < number) {
+                dataRender[dataRender.length] = albums[i];
             }
         }
         setRender(dataRender);
@@ -49,7 +47,7 @@ export const App = () => {
     const onSubmit = (e) => {
         e.preventDefault();
         update(e.target.number.value);
-        setNumber('')
+        //setNumber('')
     };
 
     const changeValue = (e) => {
@@ -64,20 +62,16 @@ export const App = () => {
                     placeholder='Number'
                     name='number'
                     min='0'
-                    max={data.length}
+                    max={albums.length}
                     value={number}
                     onChange={changeValue}
                 />
-                <button type='submit' disabled={!data.length} className='submit-btn'>Submit</button>
+                <button type='submit' disabled={!number} className='submit-btn'>Submit</button>
             </form>
         </div>
         <div className='scroll'>
-            <span className='preloader'>Loading...</span>
-            {render.map((album) =>
-                (<div key={album.id} className='text-area'>
-                    <b>ID:</b> {album.id} - <b>Index:</b> {render.indexOf(album)} <br/> <b>Title:</b> {album.title}
-                </div>)
-            )}
+            <Loader loading={loading}/>
+            <Card render={render}/>
         </div>
     </div>)
-};*/
+};

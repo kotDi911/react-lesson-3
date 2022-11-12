@@ -5,23 +5,23 @@ import './App.css';
 import './task3.css';
 import Box from "./task3";
 import Video from "./Video";
-import App1 from "./Task1";
 import {DataProvider} from "./context";
-
+import Task1 from "./Task1";
+import Task1_2 from "./Task1_2";
+import Task1_2e from "./Task1_2e";
+import {Task2} from "./task2";
 
 ReactDOM.render(
     <React.StrictMode>
         {/*<Box/>*/}
-        {/*<App/>*/}
         <DataProvider>
-            <App1/>
+            {/*<Task1/>*/}
+            {/*<Task1_2/>*/}
+            <Task1_2e/>
+            {/*<Task2/>*/}
         </DataProvider>
         {/*<Video/>*/}
     </React.StrictMode>,
     document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 

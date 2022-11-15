@@ -12,7 +12,7 @@ export const DataProvider = (props) => {
     },[]);
 
     return (
-        <DataContext.Provider value={albums}>
+        <DataContext.Provider value={{albums}}>
             {props.children}
         </DataContext.Provider>
     )

@@ -25,7 +25,6 @@ class AlbumsRender extends Component {
     }
 
     render() {
-        console.log(this.props);
         return (
             <div className='container'>
                 <div className="head">
@@ -35,7 +34,7 @@ class AlbumsRender extends Component {
                             placeholder='Number'
                             name='number'
                             min='0'
-                           // max={this.props.albums.length}
+                            max={this.props.albums.length}
                             value={this.state.count}
                             onChange={this.changeValue}
                         />

@@ -15,10 +15,10 @@ ReactDOM.render(
     <React.StrictMode>
         {/*<Box/>*/}
         <DataProvider>
-            <Task1/>
+            {/*<Task1/>*/}
             {/*<Task1_2/>*/}
-            <Task1_2e/>
-            {/*<Task2/>*/}
+            {/*<Task1_2e/>*/}
+            <Task2/>
         </DataProvider>
         {/*<Video/>*/}
     </React.StrictMode>,

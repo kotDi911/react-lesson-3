@@ -1,53 +1,27 @@
-import React, {useState, useEffect, useContext} from "react";
+import React, {useState, useContext} from "react";
 import {DataContext} from "../../context/context";
-
-const Card = ({render}) => {
-    return (
-        <>
-            {render.map((album) => {
-                    return (<div key={album.id} className='text-area'>
-                        <b>ID:</b> {album.id} - <b>Index:</b> {render.indexOf(album)} <br/> <b>Title:</b> {album.title}
-                    </div>)
-                }
-            )}
-        </>
-    )
-};
-
-const Loader = ({loading})=>{
-    return loading ? (<span className='preloader'>Loading...</span>) : (<></>);
-};
+import Loader from "../task1/Loader";
+import Albums from "../task1/Albums";
 
 export const Task2 = () => {
     const {albums} = useContext(DataContext);
     const [number, setNumber] = useState('');
     const [render, setRender] = useState([]);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        let timer = setTimeout(() => setLoading(false), 1000);
-        return () => {
-            clearTimeout(timer);
-        };
-    });
-
-
+    const [loading, setLoading] = useState(false);
 
     const update = (number) => {
-        setRender([]);
+        setLoading(true);
         let dataRender = [];
-        for (let i = 0; i < albums.length; i++) {
-            if (i < number) {
-                dataRender[dataRender.length] = albums[i];
-            }
+        for (let i = 0; i < number; i++) {
+            dataRender[i] = albums[i];
         }
         setRender(dataRender);
+        setLoading(false);
     };
 
     const onSubmit = (e) => {
         e.preventDefault();
-        update(e.target.number.value);
-        //setNumber('')
+        update(Number(number));
     };
 
     const changeValue = (e) => {
@@ -71,7 +45,7 @@ export const Task2 = () => {
         </div>
         <div className='scroll'>
             <Loader loading={loading}/>
-            <Card render={render}/>
+            <Albums albums={render}/>
         </div>
     </div>)
 };

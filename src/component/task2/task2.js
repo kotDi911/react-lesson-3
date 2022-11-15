@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext} from "react";
-import {DataContext} from "./context";
+import {DataContext} from "../../context/context";
 
 const Card = ({render}) => {
     return (

@@ -1,5 +1,5 @@
 import React from "react";
-import {DataContext} from "./context";
+import {DataContext} from "../../context/context";
 
 const Album = ({album, index})=>{
     return (

@@ -2,7 +2,7 @@ import React from "react";
 import {DataContext} from "../../context/context";
 import AlbumsRender from "./AlbumsRender";
 
-export default class App2 extends React.Component {
+export default class Task1_2e extends React.Component {
     render() {
         return (
             <DataContext.Consumer>
